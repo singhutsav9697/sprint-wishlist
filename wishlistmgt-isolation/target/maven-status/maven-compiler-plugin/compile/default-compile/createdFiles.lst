@@ -1,0 +1,10 @@
+org\cap\wishlistmanagementsystem\ServletInitializer.class
+org\cap\wishlistmanagementsystem\util\WishlistUtil.class
+org\cap\wishlistmanagementsystem\controller\WishListController.class
+org\cap\wishlistmanagementsystem\dao\IWishListDao.class
+org\cap\wishlistmanagementsystem\dto\ProductDTO.class
+org\cap\wishlistmanagementsystem\entities\WishListDTO.class
+org\cap\wishlistmanagementsystem\service\IWishListService.class
+org\cap\wishlistmanagementsystem\WishlistManagementApplication.class
+org\cap\wishlistmanagementsystem\exception\InvalidArgumentException.class
+org\cap\wishlistmanagementsystem\service\WishListServiceImpl.class
