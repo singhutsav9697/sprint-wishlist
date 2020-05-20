@@ -12,7 +12,7 @@ import org.springframework.web.client.RestTemplate;
  * 2)@ComponentScan
  * 3)@EnableAutoConfiguration
  */
-@SpringBootApplication(scanBasePackages="com.cap")
+@SpringBootApplication(scanBasePackages="org.cap")
 @EnableTransactionManagement
 public class WishlistManagementApplication {
 
