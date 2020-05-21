@@ -1,9 +1,8 @@
 package org.cap.wishlistmanagementsystem.controller;
 
 import java.util.*;
-import javax.validation.Valid;
 import org.cap.wishlistmanagementsystem.dto.ProductDTO;
-import org.cap.wishlistmanagementsystem.entities.WishListDTO;
+import org.cap.wishlistmanagementsystem.entities.WishList;
 import org.cap.wishlistmanagementsystem.service.IWishListService;
 import org.cap.wishlistmanagementsystem.util.WishlistUtil;
 import org.slf4j.Logger;
@@ -28,16 +27,16 @@ public class WishListController {
 	private IWishListService wishListService;
 
 	@PostMapping("/addItem")
-	public ResponseEntity<WishListDTO> addItem(@RequestBody @Valid Map<String, Object> requestDto) {
-		WishListDTO wishlist = WishlistUtil.convertToWishlist(requestDto);
+	public ResponseEntity<WishList> addItem(@RequestBody Map<String, Object> requestData) {
+		WishList wishlist = WishlistUtil.convertToWishlistDto(requestData);
 		boolean isAdded = wishListService.addProductToWishlist(wishlist);
-		ResponseEntity<WishListDTO> response = new ResponseEntity<>(wishlist, HttpStatus.OK);
+		ResponseEntity<WishList> response = new ResponseEntity<>(wishlist, HttpStatus.OK);
 		return response;
 	}
 
-	@GetMapping
+	@GetMapping("/mywishlist/{userId}")
 	public ResponseEntity<List<ProductDTO>> getViewWishlist(@PathVariable("userId") String userId) {
-		List<WishListDTO> wishlistDTOS = wishListService.getViewWishlist(userId);
+		List<WishList> wishlistDTOS = wishListService.getViewWishlist(userId);
 		List<String> productsId = productIds(wishlistDTOS);
 		List<ProductDTO> products = fetchProductDtos(productsId);
 		ResponseEntity<List<ProductDTO>> response = new ResponseEntity<>(products, HttpStatus.OK);
@@ -45,9 +44,9 @@ public class WishListController {
 
 	}
 
-	public List<String> productIds(List<WishListDTO> wishListDTOS) {
+	public List<String> productIds(List<WishList> wishListDTOS) {
 		List<String> ids = new ArrayList<>();
-		for (WishListDTO dto : wishListDTOS) {
+		for (WishList dto : wishListDTOS) {
 			ids.add(dto.getProductId());
 		}
 		return ids;

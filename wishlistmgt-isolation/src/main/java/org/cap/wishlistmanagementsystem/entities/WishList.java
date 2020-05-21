@@ -2,13 +2,12 @@ package org.cap.wishlistmanagementsystem.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "wishedItems")
-public class WishListDTO {
+public class WishList {
 
 	@Id
 	@GeneratedValue
@@ -18,16 +17,6 @@ public class WishListDTO {
 	private String productName;
 	private String userId;
 
-	public WishListDTO(String userId, String productId, String productName) {
-		this.userId = userId;
-		this.productId = productId;
-		this.productName = productName;
-	}
-
-	public WishListDTO() {
-
-		super();
-	}
 
 	public String getProductId() {
 		return productId;

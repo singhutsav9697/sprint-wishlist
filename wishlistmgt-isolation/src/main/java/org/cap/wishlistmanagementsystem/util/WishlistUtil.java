@@ -2,11 +2,11 @@ package org.cap.wishlistmanagementsystem.util;
 
 import java.util.Map;
 
-import org.cap.wishlistmanagementsystem.entities.WishListDTO;
+import org.cap.wishlistmanagementsystem.entities.WishList;
 
 public class WishlistUtil {
-	public static WishListDTO convertToWishlist(Map<String,Object > map) {
-		WishListDTO wishlist= new WishListDTO();
+	public static WishList convertToWishlistDto(Map<String,Object > map) {
+		WishList wishlist= new WishList();
 		String productId=(String)map.get("productId");
 		String productName=(String)map.get("productName");
 		String userId=(String)map.get("userId");

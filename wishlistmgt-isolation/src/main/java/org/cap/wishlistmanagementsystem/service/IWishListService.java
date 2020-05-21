@@ -2,11 +2,11 @@ package org.cap.wishlistmanagementsystem.service;
 
 import java.util.*;
 
-import org.cap.wishlistmanagementsystem.entities.WishListDTO;
+import org.cap.wishlistmanagementsystem.entities.WishList;
 
 public interface IWishListService {
 
-	boolean addProductToWishlist(WishListDTO dto);
+	boolean addProductToWishlist(WishList dto);
 
-	List<WishListDTO> getViewWishlist(String userId);
+	List<WishList> getViewWishlist(String userId);
 }

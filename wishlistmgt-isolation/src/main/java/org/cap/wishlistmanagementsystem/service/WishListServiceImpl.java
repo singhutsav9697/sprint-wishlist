@@ -5,7 +5,7 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.cap.wishlistmanagementsystem.dao.IWishListDao;
-import org.cap.wishlistmanagementsystem.entities.WishListDTO;
+import org.cap.wishlistmanagementsystem.entities.WishList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,14 +21,14 @@ public class WishListServiceImpl implements IWishListService {
 	}
 
 	@Override
-	public boolean addProductToWishlist(WishListDTO wishListDTO) {
+	public boolean addProductToWishlist(WishList wishListDTO) {
 		wishListDTO = wishlistDao.save(wishListDTO);
 		return true;
 	}
 
 	@Override
-	public List<WishListDTO> getViewWishlist(String userId) {
-		List<WishListDTO> list = wishlistDao.findAll();
+	public List<WishList> getViewWishlist(String userId) {
+		List<WishList> list = wishlistDao.findAll();
 		return list;
 	}
 

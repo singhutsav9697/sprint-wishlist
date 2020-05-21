@@ -1,10 +1,10 @@
 package org.cap.wishlistmanagementsystem.dao;
 
-import org.cap.wishlistmanagementsystem.entities.WishListDTO;
+import org.cap.wishlistmanagementsystem.entities.WishList;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface IWishListDao extends JpaRepository<WishListDTO, Integer> {
+public interface IWishListDao extends JpaRepository<WishList, Integer> {
 
 }
